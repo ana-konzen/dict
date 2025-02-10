@@ -1,0 +1,198 @@
+body,
+html {
+  cursor: url("cursor.png"), auto;
+}
+
+* {
+  cursor: url("cursor.png"), auto;
+}
+
+#startScreen {
+  font-family: "Cabin Sketch", serif;
+  font-weight: 400;
+}
+
+#instructionsScreen {
+  font-family: "Cabin Sketch", serif;
+  font-weight: 400;
+  line-height: 1.5em;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  text-align: center;
+  font-size: 1.2em;
+  top: 200px;
+  display: none;
+}
+
+#logo {
+  font-weight: 700;
+  font-size: 10em;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  top: 140px;
+}
+
+#options {
+  top: 350px;
+  position: fixed;
+  width: 300px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#start {
+  transform: rotate(2deg);
+}
+
+#instructions {
+  transform: rotate(-4deg);
+}
+
+#gameScreen {
+  display: none;
+}
+
+#cont {
+  /* background: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "Cabin Sketch", serif;
+  font-weight: 400;
+  /* background: rgb(7, 62, 0); */
+  color: rgb(0, 0, 0);
+  top: 50px;
+  padding: 2em;
+}
+
+#status {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0.5em;
+  font-size: 1.5em;
+}
+
+#wordCont {
+  height: 5em;
+  width: 500px;
+  margin: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#word {
+  /* font-family: "Courier New", Courier, monospace; */
+  font-size: 4em;
+  font-weight: 700;
+  position: relative;
+}
+
+/* #word::after {
+  content: "";
+  position: absolute;
+  height: 1em;
+  width: 2px;
+  background: black;
+  right: -10px;
+  top: -4px;
+  transition: 0;
+  animation: blinking 0.3s infinite linear alternate;
+} */
+
+@keyframes blinking {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.playing,
+.checking {
+  color: rgb(0, 0, 0);
+}
+
+.continue {
+  color: orange;
+}
+
+.win {
+  color: green;
+}
+
+.lose {
+  color: red;
+}
+
+#scores {
+  display: flex;
+}
+
+#scores > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  justify-content: flex-end;
+}
+
+#scores > div .header {
+  margin-bottom: 0.5em;
+}
+
+#scores > div > div {
+  margin-bottom: 0.5em;
+}
+
+#scoreCont {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 340px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  font-family: "Cabin Sketch", serif;
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: "Cabin Sketch", serif;
+  text-decoration: underline;
+  font-size: 1.5em;
+  cursor: url("cursor.png"), auto;
+}
+
+button:hover {
+  color: orange;
+}
+
+#nextRound {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  top: 320px;
+  z-index: 10;
+}
+
+svg {
+  position: fixed;
+  pointer-events: none;
+  cursor: url("cursor.png"), auto;
+  z-index: -1;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%) scale(1.5);
+}
