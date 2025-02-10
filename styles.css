@@ -27,12 +27,12 @@ html {
 
 #logo {
   font-weight: 700;
-  font-size: 10em;
+  font-size: 15em;
   text-align: center;
   position: fixed;
   left: 50%;
   transform: translateX(-50%) rotate(-1deg);
-  top: 140px;
+  top: 100px;
 }
 
 #options {

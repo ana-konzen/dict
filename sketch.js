@@ -18,12 +18,10 @@ function setup() {
     player1: {
       points: 0,
       rounds: 0,
-      index: "1",
     },
     player2: {
       points: 0,
       rounds: 0,
-      index: "2",
     },
   };
 
@@ -128,7 +126,7 @@ function writeMessage(player, word) {
   if (shared.status === "playing") {
     const turnMessage = me.turn
       ? "It's your turn! <br> Press enter to finish."
-      : `Player ${guests.indexOf(player) + 1} is typing...`;
+      : `Player ${guests.indexOf(player) + 1} is writing...`;
     return turnMessage;
   }
   if (shared.status === "checking") {
