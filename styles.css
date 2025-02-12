@@ -90,12 +90,47 @@ html {
 }
 
 #word {
-  /* font-family: "Courier New", Courier, monospace; */
-  font-size: 4em;
+  font-size: 5em;
   font-weight: 700;
+  top: 20px;
   position: relative;
 }
 
+#roundMessage {
+  background: white;
+  font-family: "Cabin Sketch", serif;
+  font-size: 1.2em;
+  text-align: center;
+  max-width: 400px;
+  position: fixed;
+  left: 50vw;
+  transform: translateX(-50%);
+  top: 200px;
+}
+
+#roundMessage button {
+  font-size: 1.2em;
+}
+
+#roundMessage .buttonCont {
+  margin-top: 1.5em;
+}
+
+#timerCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 60px;
+  left: 50vw;
+  transform: translateX(-50%);
+  font-family: "Cabin Sketch", serif;
+}
+
+#timer {
+  font-weight: 700;
+  font-size: 2em;
+}
 /* #word::after {
   content: "";
   position: absolute;
