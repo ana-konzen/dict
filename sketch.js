@@ -142,6 +142,9 @@ function writeMessage(player, word) {
       me.key === shared.turn ? "It's your turn! <br> Press enter to finish." : `${player} is writing...`;
     return turnMessage;
   }
+  if (shared.status === "start") {
+    return "Waiting for host to start the game...";
+  }
   if (shared.status === "checking") {
     return `Checking ${word}...`;
   }
