@@ -85,7 +85,7 @@ function draw() {
 
   const player = shared.status === "playing" ? currentPlayer : previousPlayer;
 
-  const statusMessage = writeMessage(shared.players[player].name, shared.word);
+  const statusMessage = writeMessage(shared.players[player]?.name, shared.word);
   select("#status").class(shared.status).html(statusMessage);
 
   if (shared.status === "win" || shared.status === "lose") {
