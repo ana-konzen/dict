@@ -201,6 +201,14 @@ html {
   font-family: "Cabin Sketch", serif;
 }
 
+#inst-start {
+  transform: rotate(-4deg);
+}
+
+#inst-back {
+  transform: rotate(2deg) translateY(5px);
+}
+
 button {
   background: none;
   border: none;

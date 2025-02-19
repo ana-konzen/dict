@@ -4,12 +4,23 @@ let wordTable;
 
 const writingTime = 10;
 
+const chalkSounds = [];
+
+let buttonSound, loseSound, winSound;
+
 function preload() {
   partyConnect("wss://demoserver.p5party.org", "ana_dict");
   shared = partyLoadShared("globals");
   me = partyLoadMyShared({ letter: "" });
 
   wordTable = loadTable("dict.csv", "csv", "header");
+
+  for (let i = 1; i <= 5; i++) {
+    chalkSounds.push(loadSound(`audio/chalk${i}.m4a`));
+  }
+  buttonSound = loadSound("audio/button.mp3");
+  loseSound = loadSound("audio/lose.mp3");
+  winSound = loadSound("audio/win.mp3");
 }
 
 function setup() {
@@ -86,6 +97,7 @@ function draw() {
 
 function keyPressed() {
   if (shared.turn === me.key && shared.status === "playing") {
+    playChalkSound();
     if (key === "Enter") {
       goToNextTurn();
     }
@@ -111,12 +123,14 @@ function checkWord(str) {
     shared.players[me.key].points -= str.length;
     shared.players[me.key].rounds--;
     updateScores();
+    loseSound.play();
     return "lose";
   }
   if (words.find((word) => word === str)) {
     shared.players[me.key].points += str.length;
     shared.players[me.key].rounds++;
     updateScores();
+    winSound.play();
     return "win";
   }
   return "continue";
@@ -132,10 +146,10 @@ function writeMessage(player, word) {
     return `Checking ${word}...`;
   }
   if (shared.status === "continue") {
-    return `There are still words that can be formed with ${word}. Keep going!`;
+    return `There are still words <br> that can be formed with <br> "${word}". <br> Keep going!`;
   }
   if (shared.status === "lose") {
-    return `There are no words that can be formed with ${word}. ${player} loses!`;
+    return `There are no words <br> that can be formed with <br> "${word}." <br> ${player} loses!`;
   }
   if (shared.status === "win") {
     return `${word} is a word! ${player} wins!`;
@@ -150,6 +164,7 @@ function updateScores() {
 }
 
 function goToNextRound() {
+  buttonSound.play();
   if (partyIsHost()) {
     shared.word = "";
     me.letter = "";
@@ -169,6 +184,7 @@ function goToNextTurn() {
 }
 
 function startGame() {
+  buttonSound.play();
   if (partyIsHost()) shared.status = "playing";
   select("#instructionsScreen").style("display", "none");
   select("#startScreen").style("display", "none");
@@ -176,6 +192,7 @@ function startGame() {
 }
 
 function goToStart() {
+  buttonSound.play();
   if (partyIsHost()) shared.status = "start";
   select("#instructionsScreen").style("display", "none");
   select("#gameScreen").style("display", "none");
@@ -183,8 +200,14 @@ function goToStart() {
 }
 
 function goToInstructions() {
+  buttonSound.play();
   if (partyIsHost()) shared.status = "start";
   select("#instructionsScreen").style("display", "block");
   select("#gameScreen").style("display", "none");
   select("#startScreen").style("display", "none");
+}
+
+function playChalkSound() {
+  const sound = random(chalkSounds);
+  sound.play();
 }
