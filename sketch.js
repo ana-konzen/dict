@@ -149,10 +149,10 @@ function writeMessage(player, word) {
     return `Checking ${word}...`;
   }
   if (shared.status === "continue") {
-    return `There are still words <br> that can be formed with <br> "${word}". <br> Keep going!`;
+    return `There are still words that can be formed with <br> "${word}". <br> Keep going!`;
   }
   if (shared.status === "lose") {
-    return `There are no words <br> that can be formed with <br> "${word}." <br> ${player} loses!`;
+    return `There are no words that can be formed with <br> "${word}." <br> ${player} loses!`;
   }
   if (shared.status === "win") {
     return `${word} is a word! ${player} wins!`;
